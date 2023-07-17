@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('detallefactura', function (Blueprint $table) {
             $table->id();
+            $table->decimal('precio', 10,2);
+            $table->char('cantidad');
+            
+            $table->bigInteger('producto_id')->unsigned();
+            $table->bigInteger('factura_id')->unsigned();
+
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
+            $table->foreign('factura_id')->references('id')->on('factura')->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }
