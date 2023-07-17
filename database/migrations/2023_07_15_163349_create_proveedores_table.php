@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('proveedores', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre', 50);
+
+            $table->bigInteger('ciudad_id')->unsigned();
+
+            $table->foreign('ciudad_id')->references('id')->on('ciudad')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
