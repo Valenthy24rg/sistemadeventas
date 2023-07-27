@@ -7,10 +7,12 @@
                     <div class="card">
                         <h3 class="card-header text-center">Iniciar Sesión</h3>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('login-custom') }}">
+                            <form method="POST" action="{{ route('login.custom') }}">
                                 @csrf
                                 <div class="form-group mb-3">
-                                    <input type="text" placeholder="Email" id="email" class="form-control" name="email" required autofocus>
+                                    <input type="text" placeholder="Email" id="email" class="form-control" name="email" required
+
+                                           autofocus>
                                     @if($errors->has('email'))
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
                                     @endif
