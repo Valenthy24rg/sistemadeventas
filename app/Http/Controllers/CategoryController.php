@@ -35,7 +35,7 @@ class CategoryController extends Controller
         return view('categories.edit', compact('category'));
     }
 
-    public function update(Category $category, Request $request)
+    public function update( $category, Request $request)
     {
         $data = $request->validate([
             'name' => 'required|max:255',
