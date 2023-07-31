@@ -9,14 +9,14 @@ class CiudadController extends Controller
 {
     public function index()
     {
-        return view('ciudad.index', [
-            'ciudad' => Ciudad::paginate()
+        return view('ciudades.index', [
+            'ciudades' => Ciudad::paginate()
         ]);
     }
 
     public function create()
     {
-        return view('ciudad.create');
+        return view('ciudades.create');
     }
 
     public function store(Request $request)
@@ -32,14 +32,14 @@ class CiudadController extends Controller
     }
     public function edit(Ciudad $ciudad)
     {
-        return view('ciudad.edit', compact('ciudad'));
+        return view('ciudades.edit', compact('ciudad'));
     }
 
     public function update( $ciudad, Request $request)
     {
         $data = $request->validate([
             'name' => 'required|max:255',
-            'departamento_id' => 'required|integer'
+            'departamento_id' => 'required|integer',
         ]);
 
         $ciudad->update($data);

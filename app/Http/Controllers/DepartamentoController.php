@@ -10,7 +10,7 @@ class DepartamentoController extends Controller
     public function index()
     {
         return view('departamento.index', [
-            'departamento' => Departamento::paginate()
+            'departamentos' => Departamento::paginate()
         ]);
     }
 
@@ -22,7 +22,7 @@ class DepartamentoController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|max:255',
+            'nombre' => 'required|max:255',
         ]);
 
         Departamento::create($data);
@@ -37,7 +37,7 @@ class DepartamentoController extends Controller
     public function update( $departamento, Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|max:255',
+            'nombre' => 'required|max:255',
         ]);
 
         $departamento->update($data);
