@@ -1,5 +1,5 @@
 <div style="margin-bottom: 1em;">
-    <a href="{{ route('categories.index') }}">Ciudad List</a>
+    <a href="{{ route('ciudades.index') }}">Ciudad List</a>
 </div>
 
 <h1>Edit Ciudad</h1>
@@ -11,9 +11,9 @@
 <form action="{{ route('ciudades.edit', $ciudad) }}" method="post">
     @csrf
     <div style="margin-bottom: 1em;">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" placeholder="Enter Ciudad" value="{{ $ciudad->name }}">
-        @error('name')
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Enter Ciudad" value="{{ $ciudad->nombre }}">
+        @error('nombre')
         <div style="color: red;">{{ $message }}</div>
         @enderror
     </div>

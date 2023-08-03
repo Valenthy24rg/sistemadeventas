@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Ciudad;
 use Illuminate\Http\Request;
 
 class EmpleadosController extends Controller
@@ -23,10 +23,10 @@ class EmpleadosController extends Controller
     {
         $data = $request->validate([
             'nombre' => 'required|max:255',
-            'ciudad_id' => 'required|integer',
             'apellido' => 'required|max:255',
             'direccion' => 'required|max:255',
-            'telefono' => 'required|max;255'
+            'telefono' => 'required|max;255',
+            'ciudad_id' => 'required|integer'
         ]);
 
         Empleados::create($data);
@@ -43,10 +43,11 @@ class EmpleadosController extends Controller
     {
         $data = $request->validate([
             'nombre' => 'required|max:255',
-            'ciudad_id' => 'required|integer',
             'apellido' => 'required|max:255',
             'direccion' => 'required|max:255',
-            'telefono' => 'required|max;255'
+            'telefono' => 'required|max;255',
+            'ciudad_id' => 'required|integer'
+
         ]);
 
         $empleados->update($data);

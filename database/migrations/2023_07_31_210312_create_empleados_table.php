@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 50);
-            $table->foreignId('ciudad_id')->constrained()->onDelete('cascade');
             $table->string('apellido', 50);
             $table->string('direccion', 100);
             $table->string('telefono', 10);
+            $table->foreignId('ciudad_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

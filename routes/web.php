@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\CiudadController;
 use App\Http\Controllers\EmpleadosController;
 
 
@@ -38,6 +39,21 @@ Route::post('/departamento/create', [DepartamentoController::class, 'store'])->n
 Route::get('/departamento/edit/{departamento}', [DepartamentoController::class, 'edit'])->name('departamento.edit');
 Route::post('/departamento/edit/{departamento}', [DepartamentoController::class, 'update'])->name('departamento.edit');
 Route::post('/departamento/delete/{departamento}', [DepartamentoController::class, 'destroy'])->name('departamento.delete');
+
+//Rutas para el CRUD de Ciudad
+Route::get('/ciudad', [CiudadController::class, 'index'])->name('ciudads.index');
+Route::get('/ciudad/create', [CiudadController::class, 'create'])->name('ciudads.create');
+Route::post('/ciudad/create', [CiudadController::class, 'store'])->name('ciudads.create');
+Route::get('/ciudad/edit/{ciudad}', [CiudadController::class, 'edit'])->name('ciudads.edit');
+Route::post('/ciudad/edit/{departamento}', [CiudadController::class, 'update'])->name('departamento.edit');
+Route::post('/ciudad/delete/{ciudad}', [CiudadController::class, 'destroy'])->name('ciudads.delete');
+
+Route::get('/empleado', [EmpleadosController::class, 'index'])->name('empleados.index');
+Route::get('/empleado/create', [EmpleadosController::class, 'create'])->name('empleados.create');
+Route::post('/empleado/create', [EmpleadosController::class, 'store'])->name('empleados.create');
+Route::get('/empleado/edit/{empleado}', [EmpleadosController::class, 'edit'])->name('empleados.edit');
+Route::post('/empleado/edit/{ciudad}', [EmpleadosController::class, 'update'])->name('empleados.edit');
+Route::post('/empleado/delete/{empleado}', [EmpleadosController::class, 'destroy'])->name('empleados.delete');
 
 
 Route::get('/', function () {

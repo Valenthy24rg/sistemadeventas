@@ -9,7 +9,7 @@ class Ciudad extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'departamento_id'];
+    protected $fillable = ['nombre', 'departamento_id'];
 
     public function departamento() {
         return $this->belongsTo(Departamento::class);

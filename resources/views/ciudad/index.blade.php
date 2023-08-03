@@ -4,11 +4,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('categories.create') }}">New Ciudad</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('ciudads.create') }}">New Ciudad</a></li>
         </ul>
     </div>
 </nav>
-
 
 @if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>
@@ -25,16 +24,16 @@
     </tr>
     </thead>
     <tbody>
-    @forelse($ciudades as $key => $ciudad)
+    @forelse($ciudads as $key => $ciudad)
         <tr>
-            <td>{{ $ciudades->firstItem() + $key }}.</td>
-            <td>{{ $ciudad->name }}</td>
+            <td>{{ $ciudads->firstItem() + $key }}.</td>
+            <td>{{ $ciudad->nombre }}</td>
             <td>{{ $ciudad->departamento_id }}</td>
             <td>{{ $ciudad->created_at->format('F d, y') }}</td>
             <td>
-                <a href="{{ route('ciudades.edit', $ciudad) }}">Edit</a>
+                <a href="{{ route('ciudads.edit', $ciudad) }}">Edit</a>
 
-                <form action="{{ route('ciudades.delete', $ciudad) }}" method="post">
+                <form action="{{ route('ciudads.delete', $ciudad) }}" method="post">
                     @csrf
                     <button type="submit">Delete</button>
                 </form>
