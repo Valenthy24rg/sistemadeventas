@@ -47,9 +47,9 @@ class CiudadController extends Controller
         return back()->with('message', 'Ciudad updated.');
     }
 
-    public function destroy(Ciudad $ciudad)
+    public function destroy(Ciudad $ciudades)
     {
-        $ciudad->delete();
+        $ciudades->delete();
 
         return back()->with('message', 'Ciudad deleted.');
     }

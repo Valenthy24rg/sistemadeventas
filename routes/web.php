@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\EmpleadosController;
 
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
@@ -26,9 +27,9 @@ Route::post('/categories/delete/{category}', [CategoryController::class, 'destro
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products/create', [ProductController::class, 'store'])->name('products.create');
-Route::get('/products/edit/{product}', [ProductController::class, 'edit'])->name('categories.edit');
+Route::get('/products/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
 Route::post('/products/edit/{product}', [ProductController::class, 'update'])->name('categories.edit');
-Route::post('/products/delete/{product}', [ProductController::class, 'destroy'])->name('categories.delete');
+Route::post('/products/delete/{product}', [ProductController::class, 'destroy'])->name('products.delete');
 
 //Rutas para el CRUD de departamento
 Route::get('/departamento', [DepartamentoController::class, 'index'])->name('departamento.index');

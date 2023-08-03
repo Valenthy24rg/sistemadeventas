@@ -11,7 +11,7 @@ class Empleados extends Model
 
     protected $fillable = ['nombre', 'ciudad_id', 'apellido', 'direccion', 'telefono'];
 
-    public function products() {
+    public function ciudades() {
         return $this->belongsTo(Ciudad::class);
     }
 
