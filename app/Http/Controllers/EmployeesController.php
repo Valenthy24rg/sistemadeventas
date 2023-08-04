@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Ciudad;
 use Illuminate\Http\Request;
 
-class EmpleadosController extends Controller
+class EmployeesController extends Controller
 {
     public function index()
     {
         return view('empleados.index', [
-           'empleados' => Empleados::paginate()
+           'empleados' => Empleados::paginate(10)
         ]);
     }
 

@@ -10,7 +10,7 @@ class CiudadController extends Controller
 {
     public function index()
     {
-        return view('ciudad.index', [
+        return view('ciudads.index', [
             'ciudads' => Ciudad::paginate(10)
         ]);
     }

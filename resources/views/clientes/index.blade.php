@@ -2,7 +2,7 @@
 @section('content')
 
     <div><a href="/">Home</a></div>
-    <div><a href="{{ route('clientes.create') }}">New Customers</a></div>
+    <div><a href="{{ route('clients.create') }}">New Customers</a></div>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     @if(session('message'))
@@ -33,9 +33,9 @@
                 <td>{{ $cliente->productos }}</td>
                 <td>{{ $cliente->created_at->format('F d, y') }}</td>
                 <td>
-                    <a href="{{ route('clientes.edit', $cliente) }}">Edit</a>
+                    <a href="{{ route('clients.edit', $cliente) }}">Edit</a>
 
-                    <form action="{{ route('clientes.delete', $cliente) }}" method="post">
+                    <form action="{{ route('clients.delete', $cliente) }}" method="post">
                         @csrf
                         <button type="submit">Delete</button>
                     </form>

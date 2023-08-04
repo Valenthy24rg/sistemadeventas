@@ -11,14 +11,14 @@ class ClientesController extends Controller
 {
     public function index()
     {
-        return view('clientes', [
-            'clientes' => Cliente::paginate()
+        return view('clients', [
+            'clients' => Cliente::paginate()
         ]);
     }
 
     public function create()
     {
-        return view('clientes.create');
+        return view('clients.create');
     }
 
     public function store(Request $request)
@@ -39,7 +39,7 @@ class ClientesController extends Controller
 
     public function edit(Clientes $clientes)
     {
-        return view('clientes.edit', compact('clientes'));
+        return view('clients.edit', compact('clientes'));
     }
 
     public function update($clientes, Request $request)
@@ -62,6 +62,6 @@ class ClientesController extends Controller
     {
         $clientes->delete();
 
-        return back()->with('message', 'Category deleted.');
+        return back()->with('message', 'Cliente deleted.');
     }
 }

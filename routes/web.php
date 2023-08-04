@@ -6,7 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\CiudadController;
-use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\EmployeesController;
 
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
@@ -29,7 +29,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products/create', [ProductController::class, 'store'])->name('products.create');
 Route::get('/products/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
-Route::post('/products/edit/{product}', [ProductController::class, 'update'])->name('categories.edit');
+Route::post('/products/edit/{product}', [ProductController::class, 'update'])->name('products.edit');
 Route::post('/products/delete/{product}', [ProductController::class, 'destroy'])->name('products.delete');
 
 //Rutas para el CRUD de departamento
@@ -48,12 +48,15 @@ Route::get('/ciudad/edit/{ciudad}', [CiudadController::class, 'edit'])->name('ci
 Route::post('/ciudad/edit/{departamento}', [CiudadController::class, 'update'])->name('departamento.edit');
 Route::post('/ciudad/delete/{ciudad}', [CiudadController::class, 'destroy'])->name('ciudads.delete');
 
-Route::get('/empleado', [EmpleadosController::class, 'index'])->name('empleados.index');
-Route::get('/empleado/create', [EmpleadosController::class, 'create'])->name('empleados.create');
-Route::post('/empleado/create', [EmpleadosController::class, 'store'])->name('empleados.create');
-Route::get('/empleado/edit/{empleado}', [EmpleadosController::class, 'edit'])->name('empleados.edit');
-Route::post('/empleado/edit/{ciudad}', [EmpleadosController::class, 'update'])->name('empleados.edit');
-Route::post('/empleado/delete/{empleado}', [EmpleadosController::class, 'destroy'])->name('empleados.delete');
+
+Route::get('/empleado', [EmployeesController::class, 'index'])->name('empleados.index');
+Route::get('/empleado/create', [EmployeesController::class, 'create'])->name('empleados.create');
+Route::post('/empleado/create', [EmployeesController::class, 'store'])->name('empleados.create');
+Route::get('/empleado/edit/{empleado}', [EmployeesController::class, 'edit'])->name('empleados.edit');
+Route::post('/empleado/edit/{ciudad}', [EmployeesController::class, 'update'])->name('empleados.edit');
+Route::post('/empleado/delete/{empleado}', [EmployeesController::class, 'destroy'])->name('empleados.delete');
+
+
 
 
 Route::get('/', function () {

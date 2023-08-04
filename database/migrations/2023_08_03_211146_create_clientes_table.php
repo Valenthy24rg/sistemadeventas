@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre', 50);
+            $table->string('apellido', 50);
+            $table->string('cedula', 10);
+            $table->string('direccion', 100);
+            $table->string('telefono', 10);
+
+            $table->foreignId('ciudad_id')->constrained()->onDelete('cascade');
+            $table->foreignId('products_id')->constrained()->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }
