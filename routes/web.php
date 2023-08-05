@@ -41,12 +41,12 @@ Route::post('/departamento/edit/{departamento}', [DepartamentoController::class,
 Route::post('/departamento/delete/{departamento}', [DepartamentoController::class, 'destroy'])->name('departamento.delete');
 
 //Rutas para el CRUD de Ciudad
-Route::get('/ciudad', [CiudadController::class, 'index'])->name('ciudads.index');
-Route::get('/ciudad/create', [CiudadController::class, 'create'])->name('ciudads.create');
-Route::post('/ciudad/create', [CiudadController::class, 'store'])->name('ciudads.create');
-Route::get('/ciudad/edit/{ciudad}', [CiudadController::class, 'edit'])->name('ciudads.edit');
+Route::get('/ciudad', [CiudadController::class, 'index'])->name('ciudad.index');
+Route::get('/ciudad/create', [CiudadController::class, 'create'])->name('ciudad.create');
+Route::post('/ciudad/create', [CiudadController::class, 'store'])->name('ciudad.create');
+Route::get('/ciudad/edit/{ciudad}', [CiudadController::class, 'edit'])->name('ciudad.edit');
 Route::post('/ciudad/edit/{departamento}', [CiudadController::class, 'update'])->name('departamento.edit');
-Route::post('/ciudad/delete/{ciudad}', [CiudadController::class, 'destroy'])->name('ciudads.delete');
+Route::post('/ciudad/delete/{ciudad}', [CiudadController::class, 'destroy'])->name('ciudad.delete');
 
 
 Route::get('/empleado', [EmployeesController::class, 'index'])->name('empleados.index');
@@ -56,7 +56,12 @@ Route::get('/empleado/edit/{empleado}', [EmployeesController::class, 'edit'])->n
 Route::post('/empleado/edit/{ciudad}', [EmployeesController::class, 'update'])->name('empleados.edit');
 Route::post('/empleado/delete/{empleado}', [EmployeesController::class, 'destroy'])->name('empleados.delete');
 
-
+Route::get('/empleado', [EmployeesController::class, 'index'])->name('empleados.index');
+Route::get('/empleado/create', [EmployeesController::class, 'create'])->name('empleados.create');
+Route::post('/empleado/create', [EmployeesController::class, 'store'])->name('empleados.create');
+Route::get('/empleado/edit/{empleado}', [EmployeesController::class, 'edit'])->name('empleados.edit');
+Route::post('/empleado/edit/{ciudad}', [EmployeesController::class, 'update'])->name('empleados.edit');
+Route::post('/empleado/delete/{empleado}', [EmployeesController::class, 'destroy'])->name('empleados.delete');
 
 
 Route::get('/', function () {

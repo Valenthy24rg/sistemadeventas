@@ -10,7 +10,7 @@ class CiudadController extends Controller
 {
     public function index()
     {
-        return view('ciudads.index', [
+        return view('ciudad.index', [
             'ciudads' => Ciudad::paginate(10)
         ]);
     }
@@ -18,13 +18,13 @@ class CiudadController extends Controller
     public function create()
     {
         $departamentos = Departamento::orderBy('nombre')->get();
-        return view('ciudads.create', compact('departamentos'));
+        return view('ciudad.create', compact('departamentos'));
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|max:255',
+            'nombre' => 'required|max:255',
             'departamento_id' => 'required|integer',
         ]);
 
@@ -36,7 +36,7 @@ class CiudadController extends Controller
     public function edit(Ciudad $ciudad)
     {
         $departamentos = Departamento::orderBy('nombre')->get();
-        return view('ciudads.edit', compact('ciudad', 'departamentos'));
+        return view('ciudad.edit', compact('ciudad', 'departamentos'));
     }
 
     public function update( $ciudad, Request $request)
