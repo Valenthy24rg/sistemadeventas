@@ -2,7 +2,7 @@
 @section('content')
 
     <div style="margin-bottom: 1em;">
-        <a href="{{ route('clientes.index') }}">Customers List</a>
+        <a href="{{ route('clients.index') }}">Customers List</a>
     </div>
 
     <h1>Create Customer</h1>
@@ -11,7 +11,7 @@
         <div style="color: green;">{{ session('message') }}</div>
     @endif
 
-    <form action="{{ route('clientes.create') }}" method="post">
+    <form action="{{ route('clients.create') }}" method="post">
         @csrf
         <div style="margin-bottom: 1em;">
             <label for="nombre">Nombre</label>
@@ -47,10 +47,7 @@
 
         <div style="margin-bottom: 1em;">
             <label for="ciudad_id">Ciudad</label>
-            <input type="text" name="ciudad_id" id="ciudad_id" placeholder="Enter Ciudad">
-            @error('ciudad_id')
-            <div style="color: red;">{{ $message }}</div>
-            @enderror
+
         </div>
 
         <div style="margin-bottom: 1em;">

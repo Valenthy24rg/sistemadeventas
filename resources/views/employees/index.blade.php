@@ -2,7 +2,7 @@
 @section('content')
 
     <div><a href="/">Home</a></div>
-    <div><a href="{{ route('empleados.create') }}">New Empleado</a></div>
+    <div><a href="{{ route('employees.create') }}">New Empleado</a></div>
 
     @if(session('message'))
         <div style="color: green;">{{ session('message') }}</div>
@@ -13,27 +13,28 @@
         <tr>
             <td>N°</td>
             <td>Nombre</td>
-            <td>Ciudad</td>
             <td>Apellido</td>
             <td>Dirección</td>
             <td>Teléfono</td>
+            <td>Ciudad</td>
             <td>Action</td>
         </tr>
         </thead>
         <tbody>
-        @forelse($empleados as $key => $empleado)
+        @forelse($employees as $key => $employee)
             <tr>
-                <td>{{ $empleado->firstItem() + $key}}</td>
-                <td>{{ $empleados->nombre }}</td>
-                <td>{{ $empleados->Ciudad }}</td>
-                <td>{{ $empleados->apellido }}
-                <td>{{ $empleados->direccion }}</td>
-                <td>{{ $empleados->telefono }}</td>
-                <td>{{ $empleados->created_at->format('F d, Y') }}</td>
+                <td>{{ $employees->firstItem() + $key}}.</td>
+                <td>{{ $employee->nombre }}</td>
+                <td>{{ $employee->apellido }}
+                <td>{{ $employee->direccion }}</td>
+                <td>{{ $employee->telefono }}</td>
                 <td>
-                    <a href="{{ route('empleados.edit', $empleado) }}">Edit</a>
+                    {{ $employee->ciudad->nombre }}
+                </td>
+                <td>
+                    <a href="{{ route('employees.edit', $employee) }}">Edit</a>
 
-                    <form action="{{ route('empleados.delete') }}" method="post">
+                    <form action="{{ route('employees.delete', $employee) }}" method="post">
                         @csrf
                         <button type="submit">Delete</button>
                     </form>

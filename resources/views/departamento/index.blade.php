@@ -25,15 +25,15 @@
     </tr>
     </thead>
     <tbody>
-    @forelse($departamentos as $key => $departamento)
+    @forelse($departments as $key => $department)
         <tr>
-            <td>{{ $departamentos->firstItem() + $key }}.</td>
-            <td>{{ $departamento->nombre }}</td>
-            <td>{{ $departamento->created_at->format('F d, y') }}</td>
+            <td>{{ $departments->firstItem() + $key }}.</td>
+            <td>{{ $department->nombre }}</td>
+            <td>{{ $department->created_at->format('F d, y') }}</td>
             <td>
-                <a href="{{ route('departamento.edit', $departamento) }}">Edit</a>
+                <a href="{{ route('departamento.edit', $department) }}">Edit</a>
 
-                <form action="{{ route('departamento.delete', $departamento) }}" method="post">
+                <form action="{{ route('departamento.delete', $department) }}" method="post">
                     @csrf
                     <button type="submit">Delete</button>
                 </form>

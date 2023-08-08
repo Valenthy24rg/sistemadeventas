@@ -3,20 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ciudad;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
-class EmpleadosController extends Controller
+class EmployeeController extends Controller
 {
     public function index()
     {
-        return view('empleados.index', [
-           'empleados' => Empleados::paginate()
+        return view('employees.index', [
+           'employees' => Employee::paginate(10)
         ]);
     }
 
     public function create()
     {
-        return view('empleados.create');
+        $ciudad = Ciudad::orderBy('nombre')->get();
+        return view('employees.create', compact('ciudad'));
     }
 
     public function store(Request $request)
@@ -25,39 +27,40 @@ class EmpleadosController extends Controller
             'nombre' => 'required|max:255',
             'apellido' => 'required|max:255',
             'direccion' => 'required|max:255',
-            'telefono' => 'required|max;255',
+            'telefono' => 'required|max:255',
             'ciudad_id' => 'required|integer'
         ]);
 
-        Empleados::create($data);
+        Employee::create($data);
 
-        return back()->with('message', 'Ciudad created successfully');
+        return back()->with('message', 'Empleado created successfully');
     }
 
-    public function edit(Empleados $empleados)
+    public function edit(Employee $employee)
     {
-        return view('empleados.edit', compact('empleados'));
+        $ciudad = Ciudad::orderBy('nombre')->get();
+        return view('employees.edit', compact('employee', 'ciudad'));
     }
 
-    public function update( $empleados, Request $request )
+    public function update(Employee $employee, Request $request )
     {
         $data = $request->validate([
             'nombre' => 'required|max:255',
             'apellido' => 'required|max:255',
             'direccion' => 'required|max:255',
-            'telefono' => 'required|max;255',
+            'telefono' => 'required|max:255',
             'ciudad_id' => 'required|integer'
 
         ]);
 
-        $empleados->update($data);
+        $employee->update($data);
 
         return back()->with('message, Empleados updated.');
     }
 
-    public function destroy(Empleados $empleados)
+    public function destroy(Employee $employee)
     {
-        $empleados->delete();
+        $employee->delete();
 
         return back()->with('message', 'Empleados deleted.');
     }

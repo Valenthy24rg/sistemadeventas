@@ -21,9 +21,18 @@
             @enderror
         </div>
         <div style="margin-block: 1em;">
-            <label for="departamento_id">Departamento</label>
-            <input type="text" name="departamento_id" id="departamento_id" placeholder="Enter Departamento">
-            @error('departamento_id')
+            <label for="department_id">Departamento</label>
+            <select name="department_id" id="department_id">
+                <option value="">Select</option>
+                @foreach($departments as $department)
+                    <option
+                        @if($department->id === (int)old('department_id'))
+                            selected
+                        @endif
+                        value="{{ $department->id }}">{{ $department->nombre }}</option>
+                @endforeach
+            </select>
+            @error('department_id')
             <div style="color: red;">{{ $message }}</div>
             @enderror
         </div>

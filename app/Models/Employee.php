@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Empleados extends Model
+class Employee extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'ciudad_id', 'apellido', 'direccion', 'telefono'];
+    protected $fillable = ['nombre', 'apellido', 'direccion', 'telefono', 'ciudad_id'];
 
-    public function ciudades() {
+    public function ciudad() {
         return $this->belongsTo(Ciudad::class);
     }
-
 }

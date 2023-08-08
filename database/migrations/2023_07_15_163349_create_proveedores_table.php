@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nombre', 50);
 
-            $table->bigInteger('ciudad_id')->unsigned();
-
-            $table->foreign('ciudad_id')->references('id')->on('ciudad')->onDelete('cascade');
+            $table->foreignId('ciudad_id')->constrained()->onDelete('cascade');
+            
 
             $table->timestamps();
         });

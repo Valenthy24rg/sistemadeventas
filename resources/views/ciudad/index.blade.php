@@ -28,7 +28,7 @@
         <tr>
             <td>{{ $ciudads->firstItem() + $key }}.</td>
             <td>{{ $ciudad->nombre }}</td>
-            <td>{{ $ciudad->departamento_id }}</td>
+            <td>{{ $ciudad->department_id }}</td>
             <td>{{ $ciudad->created_at->format('F d, y') }}</td>
             <td>
                 <a href="{{ route('ciudads.edit', $ciudad) }}">Edit</a>

@@ -8,11 +8,11 @@
     <div style="color: green;">{{ session('message') }}</div>
 @endif
 
-<form action="{{ route('departamento.edit', $departamento) }}" method="post">
+<form action="{{ route('departamento.edit', $department) }}" method="post">
     @csrf
     <div style="margin-bottom: 1em;">
         <label for="nombre">Name</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Enter Departamento" value="{{ $departamento->name }}">
+        <input type="text" name="nombre" id="nombre" placeholder="Enter Departamento" value="{{ $department->name }}">
         @error('name')
         <div style="color: red;">{{ $message }}</div>
         @enderror

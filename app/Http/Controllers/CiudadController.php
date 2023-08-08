@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ciudad;
-use App\Models\Departamento;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
 class CiudadController extends Controller
@@ -17,15 +17,15 @@ class CiudadController extends Controller
 
     public function create()
     {
-        $departamentos = Departamento::orderBy('nombre')->get();
-        return view('ciudads.create', compact('departamentos'));
+        $departments = Department::orderBy('nombre')->get();
+        return view('ciudad.create', compact('departments'));
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|max:255',
-            'departamento_id' => 'required|integer',
+            'nombre' => 'required|max:255',
+            'department_id' => 'required|integer',
         ]);
 
         Ciudad::create($data);
@@ -35,15 +35,15 @@ class CiudadController extends Controller
 
     public function edit(Ciudad $ciudad)
     {
-        $departamentos = Departamento::orderBy('nombre')->get();
-        return view('ciudads.edit', compact('ciudad', 'departamentos'));
+        $departments = Department::orderBy('nombre')->get();
+        return view('ciudads.edit', compact('ciudad', 'departments'));
     }
 
-    public function update( $ciudad, Request $request)
+    public function update(Ciudad $ciudad, Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|max:255',
-            'departamento_id' => 'required|integer',
+            'nombre' => 'required|max:255',
+            'department_id' => 'required|integer',
         ]);
 
         $ciudad->update($data);

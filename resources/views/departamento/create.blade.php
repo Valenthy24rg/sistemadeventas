@@ -1,5 +1,4 @@
 
-
 <div style="margin-bottom: 1em;">
     <a href="{{ route('departamento.index') }}">Departamento List</a>
 </div>

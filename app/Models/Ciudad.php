@@ -9,9 +9,9 @@ class Ciudad extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'departamento_id'];
+    protected $fillable = ['nombre', 'department_id'];
 
-    public function departamento() {
-        return $this->belongsTo(Departamento::class);
+    public function department() {
+        return $this->belongsTo(Department::class);
     }
 }

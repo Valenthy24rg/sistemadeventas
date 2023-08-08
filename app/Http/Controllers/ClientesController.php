@@ -11,14 +11,14 @@ class ClientesController extends Controller
 {
     public function index()
     {
-        return view('clientes', [
-            'clientes' => Cliente::paginate()
+        return view('clients', [
+            'clients' => Cliente::paginate()
         ]);
     }
 
     public function create()
     {
-        return view('clientes.create');
+        return view('clients.create');
     }
 
     public function store(Request $request)
@@ -37,12 +37,12 @@ class ClientesController extends Controller
         return back()->with('message', 'Cliente created successfully');
     }
 
-    public function edit(Clientes $clientes)
+    public function edit(Clientes $clients)
     {
-        return view('clientes.edit', compact('clientes'));
+        return view('clients.edit', compact('clients'));
     }
 
-    public function update($clientes, Request $request)
+    public function update($clients, Request $request)
     {
         $data = $request->validate([
             'nombre' => 'require|max:255',
@@ -53,14 +53,14 @@ class ClientesController extends Controller
             'products_id' => 'require|integer'
         ]);
 
-        $clientes->update($data);
+        $clients->update($data);
 
         return back()->with('message', 'Cliente updated.');
     }
 
-    public function destroy(Clientes $clientes)
+    public function destroy(Clientes $clients)
     {
-        $clientes->delete();
+        $clients->delete();
 
         return back()->with('message', 'Category deleted.');
     }

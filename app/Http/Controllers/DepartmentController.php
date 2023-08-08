@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Departamento;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
-class DepartamentoController extends Controller
+class DepartmentController extends Controller
 {
+
     public function index()
     {
         return view('departamento.index', [
-            'departamentos' => Departamento::paginate()
+            'departments' => Department::paginate()
         ]);
     }
 
@@ -22,32 +23,32 @@ class DepartamentoController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nombre' => 'required|max:255',
+            'nombre' => 'required|max:255'
         ]);
 
-        Departamento::create($data);
+        Department::create($data);
 
         return back()->with('message', 'Departamento created successfully');
     }
-    public function edit(Departamento $departamento)
+    public function edit(Department $department)
     {
-        return view('departamento.edit', compact('departamento'));
+        return view('departamento.edit', compact('department'));
     }
 
-    public function update( $departamento, Request $request)
+    public function update(Department $department, Request $request)
     {
         $data = $request->validate([
-            'nombre' => 'required|max:255',
+            'nombre' => 'required|max:255'
         ]);
 
-        $departamento->update($data);
+        $department->update($data);
 
         return back()->with('message', 'Departamento updated.');
     }
 
-    public function destroy(Departamento $departamento)
+    public function destroy(Department $department)
     {
-        $departamento->delete();
+        $department->delete();
 
         return back()->with('message', 'Departamento deleted.');
     }
