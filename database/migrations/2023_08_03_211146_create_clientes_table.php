@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('telefono', 10);
 
             $table->foreignId('ciudad_id')->constrained()->onDelete('cascade');
+            $table->foreignId('products_id')->constrained()->onDelete('cascade');
+
 
             $table->timestamps();
         });
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('clientes');
     }
 };

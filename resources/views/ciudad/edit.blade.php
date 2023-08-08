@@ -1,5 +1,5 @@
 <div style="margin-bottom: 1em;">
-    <a href="{{ route('ciudades.index') }}">Ciudad List</a>
+    <a href="{{ route('ciudad.index') }}">Ciudad List</a>
 </div>
 
 <h1>Edit Ciudad</h1>
@@ -8,7 +8,7 @@
     <div style="color: green;">{{ session('message') }}</div>
 @endif
 
-<form action="{{ route('ciudades.edit', $ciudad) }}" method="post">
+<form action="{{ route('ciudad.edit', $ciudad) }}" method="post">
     @csrf
     <div style="margin-bottom: 1em;">
         <label for="nombre">Nombre</label>

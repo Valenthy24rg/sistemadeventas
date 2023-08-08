@@ -29,7 +29,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products/create', [ProductController::class, 'store'])->name('products.create');
 Route::get('/products/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
-Route::post('/products/edit/{product}', [ProductController::class, 'update'])->name('categories.edit');
+Route::post('/products/edit/{product}', [ProductController::class, 'update'])->name('products.edit');
 Route::post('/products/delete/{product}', [ProductController::class, 'destroy'])->name('products.delete');
 
 //Rutas para el CRUD de departamento
@@ -45,7 +45,7 @@ Route::get('/ciudad', [CiudadController::class, 'index'])->name('ciudads.index')
 Route::get('/ciudad/create', [CiudadController::class, 'create'])->name('ciudads.create');
 Route::post('/ciudad/create', [CiudadController::class, 'store'])->name('ciudads.create');
 Route::get('/ciudad/edit/{ciudad}', [CiudadController::class, 'edit'])->name('ciudads.edit');
-Route::post('/ciudad/edit/{ciudad}', [CiudadController::class, 'update'])->name('ciudads.edit');
+Route::post('/ciudad/edit/{departamento}', [CiudadController::class, 'update'])->name('departamento.edit');
 Route::post('/ciudad/delete/{ciudad}', [CiudadController::class, 'destroy'])->name('ciudads.delete');
 
 Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');

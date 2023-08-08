@@ -62,6 +62,6 @@ class ClientesController extends Controller
     {
         $clients->delete();
 
-        return back()->with('message', 'Category deleted.');
+        return back()->with('message', 'Cliente deleted.');
     }
 }

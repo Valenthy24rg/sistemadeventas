@@ -4,7 +4,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('ciudads.create') }}">New Ciudad</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('ciudad.create') }}">New Ciudad</a></li>
         </ul>
     </div>
 </nav>
@@ -31,9 +31,9 @@
             <td>{{ $ciudad->department_id }}</td>
             <td>{{ $ciudad->created_at->format('F d, y') }}</td>
             <td>
-                <a href="{{ route('ciudads.edit', $ciudad) }}">Edit</a>
+                <a href="{{ route('ciudad.edit', $ciudad) }}">Edit</a>
 
-                <form action="{{ route('ciudads.delete', $ciudad) }}" method="post">
+                <form action="{{ route('ciudad.delete', $ciudad) }}" method="post">
                     @csrf
                     <button type="submit">Delete</button>
                 </form>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class CategoryController extends Controller
         return view('categories.edit', compact('category'));
     }
 
-    public function update( $category, Request $request)
+    public function update(Category $category, Request $request)
     {
         $data = $request->validate([
             'name' => 'required|max:255',

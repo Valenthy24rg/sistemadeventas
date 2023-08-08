@@ -24,6 +24,7 @@
         <input type="text" name="price" id="price" placeholder="Enter Price" value="{{ $client->price }}">
         @error('price')
         <div style="color: red;">{{ $message }}</div>
+        @enderror
     </div>
     <div style="margin-bottom: 1em;">
         <label for="category_id">Category</label>
@@ -37,7 +38,7 @@
                     value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
         </select>
-        @error('$category_id')
+        @error('category_id')
         <div style="color: red;">{{ $message }}</div>
         @enderror
     </div>
