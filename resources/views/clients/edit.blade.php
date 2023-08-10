@@ -54,7 +54,7 @@
                         @if($city->id === (int)$client->$city_id)
                             selected
                         @endif
-                        value="{{ $city->id }}">{{ $city->nombre }}</option>
+                        value="{{ $city->id }}">{{ $city->name }}</option>
                 @endforeach
             </select>
             @error('city_id')

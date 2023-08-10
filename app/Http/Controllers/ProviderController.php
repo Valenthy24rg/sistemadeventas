@@ -16,7 +16,7 @@ class ProviderController extends Controller
 
     public function create()
     {
-        $cities = City::orderBy('nombre')->get();
+        $cities = City::orderBy('name')->get();
         return view('providers.create', compact('cities'));
     }
 
@@ -27,14 +27,14 @@ class ProviderController extends Controller
             'city_id' => 'required|integer'
         ]);
 
-        City::create($data);
+        Provider::create($data);
 
         return back()->with('message', 'City created successfully');
     }
 
     public function edit(Provider $provider)
     {
-        $cities = City::orderBy('nombre')->get();
+        $cities = City::orderBy('name')->get();
         return view('providers.edit', compact('provider', 'cities'));
     }
 

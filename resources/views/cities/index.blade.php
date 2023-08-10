@@ -27,9 +27,9 @@
     @forelse($cities as $key => $city)
         <tr>
             <td>{{ $cities->firstItem() + $key }}.</td>
-            <td>{{ $city->nombre }}</td>
+            <td>{{ $city->name }}</td>
             <td>
-                {{ $city->deparment->nombre }}
+                {{ $city->deparment->name }}
             </td>
             <td>
                 <a href="{{ route('cities.edit', $city) }}">Edit</a>

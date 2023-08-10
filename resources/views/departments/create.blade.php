@@ -1,6 +1,6 @@
 
 <div style="margin-bottom: 1em;">
-    <a href="{{ route('departamento.index') }}">Departamento List</a>
+    <a href="{{ route('departments.index') }}">Departamento List</a>
 </div>
 
 <h1>Create Departamento</h1>
@@ -9,12 +9,12 @@
     <div style="color: green;">{{ session('message') }}</div>
 @endif
 
-<form action="{{ route('departamento.create') }}" method="post">
+<form action="{{ route('departments.create') }}" method="post">
     @csrf
     <div style="margin-bottom: 1em;">
-        <label for="nombre">Name</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Enter Departamento">
-        @error('nombre')
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Enter Departamento">
+        @error('name')
         <div style="color: red;">{{ $message }}</div>
         @enderror
     </div>

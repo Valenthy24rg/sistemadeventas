@@ -22,9 +22,9 @@
             <tr>
                 <td>{{ $providers->firstItem() + $key }}.</td>
                 <td>{{ $provider->name }}</td>
-                <td>{{ $provider->city->nombre }}</td>
+                <td>{{ $provider->city->name }}</td>
                 <td>
-                    <a href="{{ route('providers.edit'), $provider }}">Edit</a>
+                    <a href="{{ route('providers.edit', $provider)  }}">Edit</a>
 
                     <form action="{{ route('providers.delete', $provider) }}" method="post">
                         @csrf

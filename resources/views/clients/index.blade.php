@@ -29,7 +29,7 @@
                 <td>{{ $client->cedula }}</td>
                 <td>{{ $client->telefono }}</td>
                 <td>{{ $client->direccion }}</td>
-                <td>{{ $client->city->nombre }}</td>
+                <td>{{ $client->city->name }}</td>
                 <td>{{ $client->products->name }}</td>
                 <td>
                     <a href="{{ route('clients.edit', $client) }}">Edit</a>

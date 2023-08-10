@@ -5,7 +5,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('departamento.create') }}">New Departamento</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('departments.create') }}">New Departamento</a></li>
         </ul>
     </div>
 </nav>
@@ -28,12 +28,12 @@
     @forelse($departments as $key => $department)
         <tr>
             <td>{{ $departments->firstItem() + $key }}.</td>
-            <td>{{ $department->nombre }}</td>
+            <td>{{ $department->name }}</td>
             <td>{{ $department->created_at->format('F d, y') }}</td>
             <td>
-                <a href="{{ route('departamento.edit', $department) }}">Edit</a>
+                <a href="{{ route('departments.edit', $department) }}">Edit</a>
 
-                <form action="{{ route('departamento.delete', $department) }}" method="post">
+                <form action="{{ route('departments.delete', $department) }}" method="post">
                     @csrf
                     <button type="submit">Delete</button>
                 </form>

@@ -9,9 +9,17 @@ class City extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'department_id'];
+    protected $fillable = ['name', 'department_id'];
 
     public function department() {
         return $this->belongsTo(Department::class);
+    }
+
+    public function provider() {
+        return $this->belongsTo(Provider::class);
+    }
+
+    public function employee() {
+        return $this->belongsTo(Employee::class);
     }
 }

@@ -10,20 +10,20 @@ class DepartmentController extends Controller
 
     public function index()
     {
-        return view('departamento.index', [
+        return view('departments.index', [
             'departments' => Department::paginate()
         ]);
     }
 
     public function create()
     {
-        return view('departamento.create');
+        return view('departments.create');
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nombre' => 'required|max:255'
+            'name' => 'required|max:255'
         ]);
 
         Department::create($data);
@@ -32,13 +32,13 @@ class DepartmentController extends Controller
     }
     public function edit(Department $department)
     {
-        return view('departamento.edit', compact('department'));
+        return view('departments.edit', compact('department'));
     }
 
     public function update(Department $department, Request $request)
     {
         $data = $request->validate([
-            'nombre' => 'required|max:255'
+            'name' => 'required|max:255'
         ]);
 
         $department->update($data);

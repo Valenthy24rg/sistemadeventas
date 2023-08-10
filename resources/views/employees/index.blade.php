@@ -29,7 +29,7 @@
                 <td>{{ $employee->direccion }}</td>
                 <td>{{ $employee->telefono }}</td>
                 <td>
-                    {{ $employee->city->nombre }}
+                    {{ $employee->city->name }}
                 </td>
                 <td>
                     <a href="{{ route('employees.edit', $employee) }}">Edit</a>

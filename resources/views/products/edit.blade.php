@@ -21,7 +21,7 @@
     </div>
     <div style="margin-bottom: 1em;">
         <label for="price">Price</label>
-        <input type="text" name="price" id="price" placeholder="Enter Price" value="{{ $client->price }}">
+        <input type="text" name="price" id="price" placeholder="Enter Price" value="{{ $product->price }}">
         @error('price')
         <div style="color: red;">{{ $message }}</div>
         @enderror
@@ -32,7 +32,7 @@
             <option value="">Select</option>
             @foreach($categories as $category)
                 <option
-                    @if($category->id === (int)$product->$category_id)
+                    @if($category->id === (int)$product->category_id)
                         selected
                     @endif
                     value="{{ $category->id }}">{{ $category->name }}</option>

@@ -17,14 +17,14 @@ class CityController extends Controller
 
     public function create()
     {
-        $departments = Department::orderBy('nombre')->get();
+        $departments = Department::orderBy('name')->get();
         return view('cities.create', compact('departments'));
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nombre' => 'required|max:255',
+            'name' => 'required|max:255',
             'department_id' => 'required|integer'
         ]);
 
@@ -35,14 +35,14 @@ class CityController extends Controller
 
     public function edit(City $city)
     {
-        $departments = Department::orderBy('nombre')->get();
+        $departments = Department::orderBy('name')->get();
         return view('cities.edit', compact('city', 'departments'));
     }
 
     public function update(City $city, Request $request)
     {
         $data = $request->validate([
-            'nombre' => 'required|max:255',
+            'name' => 'required|max:255',
             'department_id' => 'required|integer'
         ]);
 
