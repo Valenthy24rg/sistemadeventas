@@ -2,32 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ciudad;
+use App\Models\City;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
-<<<<<<<< HEAD:app/Http/Controllers/EmployeeController.php
 class EmployeeController extends Controller
 {
-    public function index()
-    {
-        return view('employees.index', [
-           'employees' => Employee::paginate(10)
-========
-class EmployeesController extends Controller
-{
-    public function index()
-    {
-        return view('empleados.index', [
-           'empleados' => Empleados::paginate(10)
->>>>>>>> origin/develop_crud:app/Http/Controllers/EmployeesController.php
+    public function index() {
+        return view('cities.index', [
+            'cities' => City::paginate(10)
         ]);
     }
 
     public function create()
     {
-        $ciudad = Ciudad::orderBy('nombre')->get();
-        return view('employees.create', compact('ciudad'));
+        $cities = City::orderBy('nombre')->get();
+        return view('employees.create', compact('cities'));
     }
 
     public function store(Request $request)
@@ -37,7 +27,7 @@ class EmployeesController extends Controller
             'apellido' => 'required|max:255',
             'direccion' => 'required|max:255',
             'telefono' => 'required|max:255',
-            'ciudad_id' => 'required|integer'
+            'city_id' => 'required|integer',
         ]);
 
         Employee::create($data);
@@ -47,18 +37,18 @@ class EmployeesController extends Controller
 
     public function edit(Employee $employee)
     {
-        $ciudad = Ciudad::orderBy('nombre')->get();
-        return view('employees.edit', compact('employee', 'ciudad'));
+        $cities = City::orderBy('nombre')->get();
+        return view('employees.edit', compact('employee', 'cities'));
     }
 
-    public function update(Employee $employee, Request $request )
+    public function update(Employee $employee, Request $request)
     {
         $data = $request->validate([
             'nombre' => 'required|max:255',
             'apellido' => 'required|max:255',
             'direccion' => 'required|max:255',
             'telefono' => 'required|max:255',
-            'ciudad_id' => 'required|integer'
+            'city_id' => 'required|integer',
 
         ]);
 

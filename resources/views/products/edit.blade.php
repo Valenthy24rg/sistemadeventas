@@ -1,7 +1,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <div style="margin-bottom: 1em;">
-    <a href="{{ route('clients.index') }}">Product List</a>
+    <a href="{{ route('products.index') }}">Product List</a>
 </div>
 
 <h1>Edit Product</h1>
@@ -10,11 +10,11 @@
     <div style="color: green;">{{ session('message') }}</div>
 @endif
 
-<form action="{{ route('clients.edit', $client) }}" method="post">
+<form action="{{ route('products.edit', $product) }}" method="post">
     @csrf
     <div style="margin-bottom: 1em;">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" placeholder="Enter Name" value="{{ $client->name }}">
+        <input type="text" name="name" id="name" placeholder="Enter Name" value="{{ $product->name }}">
         @error('name')
         <div style="color: red;">{{ $message }}</div>
         @enderror
@@ -32,7 +32,7 @@
             <option value="">Select</option>
             @foreach($categories as $category)
                 <option
-                    @if($category->id === (int)$client->$category_id)
+                    @if($category->id === (int)$product->$category_id)
                         selected
                     @endif
                     value="{{ $category->id }}">{{ $category->name }}</option>

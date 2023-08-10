@@ -16,7 +16,7 @@
             <td>Apellido</td>
             <td>Dirección</td>
             <td>Teléfono</td>
-            <td>Ciudad</td>
+            <td>City</td>
             <td>Action</td>
         </tr>
         </thead>
@@ -29,7 +29,7 @@
                 <td>{{ $employee->direccion }}</td>
                 <td>{{ $employee->telefono }}</td>
                 <td>
-                    {{ $employee->ciudad->nombre }}
+                    {{ $employee->city->nombre }}
                 </td>
                 <td>
                     <a href="{{ route('employees.edit', $employee) }}">Edit</a>

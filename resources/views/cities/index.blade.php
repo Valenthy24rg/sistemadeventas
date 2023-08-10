@@ -4,7 +4,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('ciudad.create') }}">New Ciudad</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('cities.create') }}">New Ciudad</a></li>
         </ul>
     </div>
 </nav>
@@ -18,22 +18,23 @@
     <tr>
         <td>N°</td>
         <td>Name</td>
-        <td>Departamento</td>
+        <td>Department</td>
         <td>Timestamp</td>
         <td>Action</td>
     </tr>
     </thead>
     <tbody>
-    @forelse($ciudads as $key => $ciudad)
+    @forelse($cities as $key => $city)
         <tr>
-            <td>{{ $ciudads->firstItem() + $key }}.</td>
-            <td>{{ $ciudad->nombre }}</td>
-            <td>{{ $ciudad->department_id }}</td>
-            <td>{{ $ciudad->created_at->format('F d, y') }}</td>
+            <td>{{ $cities->firstItem() + $key }}.</td>
+            <td>{{ $city->nombre }}</td>
             <td>
-                <a href="{{ route('ciudad.edit', $ciudad) }}">Edit</a>
+                {{ $city->deparment->nombre }}
+            </td>
+            <td>
+                <a href="{{ route('cities.edit', $city) }}">Edit</a>
 
-                <form action="{{ route('ciudad.delete', $ciudad) }}" method="post">
+                <form action="{{ route('cities.delete', $city) }}" method="post">
                     @csrf
                     <button type="submit">Delete</button>
                 </form>

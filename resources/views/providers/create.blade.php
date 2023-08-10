@@ -2,37 +2,38 @@
 @section('content')
 
     <div style="margin-bottom: 1em;">
-        <a href="{{ route('ciudads.index') }}">Ciudad List</a>
+        <a href="{{ route('providers.index') }}">Provider List</a>
     </div>
 
-    <h1>Create Ciudad</h1>
+    <h1>Create Provider</h1>
 
     @if(session('message'))
         <div style="color: green;">{{ session('message') }}</div>
+
     @endif
 
-    <form action="{{ route('ciudads.create') }}" method="post">
+    <form action="{{ route('providers.create') }}" method="post">
         @csrf
         <div style="margin-bottom: 1em;">
-            <label for="nombre">Name</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Enter Ciudad">
-            @error('nombre')
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter Name" value="{{ old('name') }}">
+            @error('name')
             <div style="color: red;">{{ $message }}</div>
             @enderror
         </div>
-        <div style="margin-block: 1em;">
-            <label for="department_id">Departamento</label>
-            <select name="department_id" id="department_id">
+        <div style="margin-bottom: 1em;">
+            <label for="city_id">City</label>
+            <select name="city_id" id="city_id">
                 <option value="">Select</option>
-                @foreach($departments as $department)
+                @foreach($cities as $city)
                     <option
-                        @if($department->id === (int)old('department_id'))
+                        @if($city->id === (int)old('city_id'))
                             selected
                         @endif
-                        value="{{ $department->id }}">{{ $department->nombre }}</option>
+                        value="{{ $city->id }}">{{ $city->nombre }}</option>
                 @endforeach
             </select>
-            @error('department_id')
+            @error('city_id')
             <div style="color: red;">{{ $message }}</div>
             @enderror
         </div>

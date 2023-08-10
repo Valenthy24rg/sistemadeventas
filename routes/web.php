@@ -5,8 +5,11 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\CiudadController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProviderController;
+
 
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
@@ -40,14 +43,15 @@ Route::get('/department/edit/{department}', [DepartmentController::class, 'edit'
 Route::post('/department/edit/{department}', [DepartmentController::class, 'update'])->name('departamento.edit');
 Route::post('/department/delete/{department}', [DepartmentController::class, 'destroy'])->name('departamento.delete');
 
-//Rutas para el CRUD de Ciudad
-Route::get('/ciudad', [CiudadController::class, 'index'])->name('ciudads.index');
-Route::get('/ciudad/create', [CiudadController::class, 'create'])->name('ciudads.create');
-Route::post('/ciudad/create', [CiudadController::class, 'store'])->name('ciudads.create');
-Route::get('/ciudad/edit/{ciudad}', [CiudadController::class, 'edit'])->name('ciudads.edit');
-Route::post('/ciudad/edit/{departamento}', [CiudadController::class, 'update'])->name('departamento.edit');
-Route::post('/ciudad/delete/{ciudad}', [CiudadController::class, 'destroy'])->name('ciudads.delete');
+//Rutas para el CRUD de City
+Route::get('/cities', [CityController::class, 'index'])->name('cities.index');
+Route::get('/cities/create', [CityController::class, 'create'])->name('cities.create');
+Route::post('/cities/create', [CityController::class, 'store'])->name('cities.create');
+Route::get('/cities/edit/{cities}', [CityController::class, 'edit'])->name('cities.edit');
+Route::post('/cities/edit/{department}', [CityController::class, 'update'])->name('cities.edit');
+Route::post('/cities/delete/{cities}', [CityController::class, 'destroy'])->name('cities.delete');
 
+//Rutas para el CRUD de empleados
 Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');
 Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create');
 Route::post('/employees/create', [EmployeeController::class, 'store'])->name('employees.create');
@@ -55,12 +59,22 @@ Route::get('/employees/edit/{employees}', [EmployeeController::class, 'edit'])->
 Route::post('/employees/edit/{employees}', [EmployeeController::class, 'update'])->name('employees.edit');
 Route::post('/employees/delete/{employees}', [EmployeeController::class, 'destroy'])->name('employees.delete');
 
-Route::get('/client', [EmployeeController::class, 'index'])->name('clients.index');
-Route::get('/client/create', [EmployeeController::class, 'create'])->name('clients.create');
-Route::post('/client/create', [EmployeeController::class, 'store'])->name('clients.create');
-Route::get('/client/edit/{client}', [EmployeeController::class, 'edit'])->name('clients.edit');
-Route::post('/client/edit/{client}', [EmployeeController::class, 'update'])->name('clients.edit');
-Route::post('/client/delete/{client}', [EmployeeController::class, 'destroy'])->name('clients.delete');
+//Rutas para el CRUD de clientes
+Route::get('/client', [ClientController::class, 'index'])->name('clients.index');
+Route::get('/client/create', [ClientController::class, 'create'])->name('clients.create');
+Route::post('/client/create', [ClientController::class, 'store'])->name('clients.create');
+Route::get('/client/edit/{clients}', [ClientController::class, 'edit'])->name('clients.edit');
+Route::post('/client/edit/{clients}', [ClientController::class, 'update'])->name('cities.edit');
+Route::post('/client/delete/{clients}', [ClientController::class, 'destroy'])->name('clients.delete');
+
+// Rutas para el CRUD de proveedores
+Route::get('/provider', [ProviderController::class, 'index'])->name('providers.index');
+Route::get('/provider/create', [ProviderController::class, 'create'])->name('providers.create');
+Route::post('/provider/create', [ProviderController::class, 'store'])->name('providers.create');
+Route::get('/provider/edit/{providers}', [ProviderController::class, 'edit'])->name('providers.edit');
+Route::post('/provider/edit/{providers}', [ProviderController::class, 'update'])->name('providers.edit');
+Route::post('/provider/delete/{providers}', [ProviderController::class, 'destroy'])->name('providers.delete');
+
 
 
 Route::get('/', function () {

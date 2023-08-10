@@ -22,19 +22,19 @@
         </tr>
         </thead>
         <tbody>
-        @forelse($clientes as $key => $cliente)
+        @forelse($clients as $key => $client)
             <tr>
-                <td>{{ $clientes->firstItem() + $key }}.</td>
-                <td>{{ $cliente->nombre }}</td>
-                <td>{{ $cliente->cedula }}</td>
-                <td>{{ $cliente->telefono }}</td>
-                <td>{{ $cliente->direccion }}</td>
-                <td>{{ $cliente->producto->nombre }}</td>
-                <td>{{ $cliente->ciudad->nombre }}</td>
+                <td>{{ $clients->firstItem() + $key }}.</td>
+                <td>{{ $client->nombre }}</td>
+                <td>{{ $client->cedula }}</td>
+                <td>{{ $client->telefono }}</td>
+                <td>{{ $client->direccion }}</td>
+                <td>{{ $client->city->nombre }}</td>
+                <td>{{ $client->products->name }}</td>
                 <td>
-                    <a href="{{ route('clients.edit', $cliente) }}">Edit</a>
+                    <a href="{{ route('clients.edit', $client) }}">Edit</a>
 
-                    <form action="{{ route('clients.delete', $cliente) }}" method="post">
+                    <form action="{{ route('clients.delete', $client) }}" method="post">
                         @csrf
                         <button type="submit">Delete</button>
                     </form>

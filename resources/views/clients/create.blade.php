@@ -46,13 +46,34 @@
         </div>
 
         <div style="margin-bottom: 1em;">
-            <label for="ciudad_id">Ciudad</label>
-
+            <label for="city_id">City</label>
+            <select name="city_id" id="city_id">
+                <option value="">Select</option>
+                @foreach($cities as $city)
+                    <option
+                        @if($city->id === (int)old('city_id'))
+                            selected
+                        @endif
+                        value="{{ $city->id }}">{{ $city->nombre}}</option>
+                @endforeach
+            </select>
+            @error('city_id')
+            <div style="color: red;">{{ $message }}</div>
+            @enderror
         </div>
 
         <div style="margin-bottom: 1em;">
             <label for="products_id">Producto(s)</label>
-            <input type="text" name="products_id" id="products_id" placeholder="Enter Product">
+            <select name="products_id" id="products_id">
+                <option value="">Select</option>
+                @foreach($products as $product)
+                    <option
+                        @if($product->id === (int)old('products_id'))
+                            selected
+                        @endif
+                        value="{{ $product->id }}">{{ $product->name }}</option>
+                @endforeach
+            </select>
             @error('products_id')
             <div style="color: red;">{{ $message }}</div>
             @enderror

@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         return view('products.index', [
            'products' => Product::paginate(10)
         ]);
@@ -31,7 +30,7 @@ class ProductController extends Controller
 
         Product::create($data);
 
-        return back()->with('message', 'Product created');
+        return back()->with('message', 'Product created successfully');
     }
 
     public function edit(Product $product)

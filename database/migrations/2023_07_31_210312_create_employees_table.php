@@ -17,7 +17,10 @@ return new class extends Migration
             $table->string('apellido', 50);
             $table->string('direccion', 100);
             $table->string('telefono', 10);
-            $table->foreignId('ciudad_id')->constrained()->onDelete('cascade');
+
+            $table->foreignId('city_id')->constrained()->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }

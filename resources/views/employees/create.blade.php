@@ -44,18 +44,18 @@
             @enderror
         </div>
         <div style="margin-bottom: 1em;">
-            <label for="ciudad_id">Ciudad</label>
-            <select name="ciudad_id" id="ciudad_id">
+            <label for="city_id">Ciudad</label>
+            <select name="city_id" id="city_id">
                 <option value="">Select</option>
-                @foreach($ciudads as $ciudad)
+                @foreach($cities as $city)
                     <option
-                        @if($ciudad->id === (int) old('ciudad_id'))
+                        @if($city->id === (int)old('city_id'))
                             selected
                         @endif
-                        value="{{ $ciudad->id }}">{{ $ciudad->nombre }}</option>
+                        value="{{ $city->id }}">{{ $city->nombre }}</option>
                 @endforeach
             </select>
-            @error('ciudad_id')
+            @error('city_id')
             <div style="color: red;">{{ $message }}</div>
             @enderror
         </div>
