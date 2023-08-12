@@ -20,8 +20,8 @@ class BillController extends Controller
 
     public function create()
     {
-        $employees = Employee::orderBy('name')->get();
-        $clients = Client::orderBy('name')->get();
+        $employees = Employee::orderBy('nombre')->get();
+        $clients = Client::orderBy('nombre')->get();
         $products = Product::orderBy('name')->get();
 
         return view('bills.create', compact('employees', 'clients', 'products'));
@@ -44,8 +44,8 @@ class BillController extends Controller
 
     public function edit(Bill $bill)
     {
-        $employees = Employee::orderBy('name')->get();
-        $clients = Client::orderBy('name')->get();
+        $employees = Employee::orderBy('nombre')->get();
+        $clients = Client::orderBy('nombre')->get();
         $products = Product::orderBy('name')->get();
 
         return view('bills.edit', compact('bill','employees', 'clients', 'products'));

@@ -9,6 +9,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\BillController;
 
 
 
@@ -75,6 +76,13 @@ Route::get('/providers/edit/{provider}', [ProviderController::class, 'edit'])->n
 Route::post('/providers/edit/{provider}', [ProviderController::class, 'update'])->name('providers.edit');
 Route::post('/providers/delete/{provider}', [ProviderController::class, 'destroy'])->name('providers.delete');
 
+//Rutas para el CRUD de factura
+Route::get('/bills', [BillController::class, 'index'])->name('bills.index');
+Route::get('/bills/create', [BillController::class, 'create'])->name('bills.create');
+Route::post('/bills/create', [BillController::class, 'store'])->name('bills.create');
+Route::get('/bills/edit/{bill}', [BillController::class, 'edit'])->name('bills.edit');
+Route::post('/bills/edit/{bill}', [BillController::class, 'update'])->name('bills.edit');
+Route::post('/bills/delete/{bill}', [BillController::class, 'destroy'])->name('bills.delete');
 
 
 Route::get('/', function () {

@@ -14,4 +14,12 @@ class Bill extends Model
     public function employee() {
         return $this->belongsTo(Employee::class);
     }
+
+    public function client() {
+        return $this->belongsTo(Client::class);
+    }
+
+    public function products() {
+        return $this->belongsTo(Product::class);
+    }
 }

@@ -18,7 +18,7 @@ class ClientController extends Controller
 
     public function create()
     {
-        $cities = City::orderBy('nombre')->get();
+        $cities = City::orderBy('name')->get();
         $products = Product::orderBy('name')->get();
         return view('clients.create', compact('cities', 'products'));
     }
@@ -42,7 +42,7 @@ class ClientController extends Controller
 
     public function edit(Client $clients)
     {
-        $cities = City::orderBy('nombre')->get();
+        $cities = City::orderBy('name')->get();
         $products = Product::orderBy('name')->get();
         return view('clients.create', compact('cities', 'products'));
     }

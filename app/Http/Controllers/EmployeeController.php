@@ -9,14 +9,14 @@ use Illuminate\Http\Request;
 class EmployeeController extends Controller
 {
     public function index() {
-        return view('cities.index', [
+        return view('employees.index', [
             'cities' => City::paginate(10)
         ]);
     }
 
     public function create()
     {
-        $cities = City::orderBy('nombre')->get();
+        $cities = City::orderBy('name')->get();
         return view('employees.create', compact('cities'));
     }
 
@@ -37,7 +37,7 @@ class EmployeeController extends Controller
 
     public function edit(Employee $employee)
     {
-        $cities = City::orderBy('nombre')->get();
+        $cities = City::orderBy('name')->get();
         return view('employees.edit', compact('employee', 'cities'));
     }
 

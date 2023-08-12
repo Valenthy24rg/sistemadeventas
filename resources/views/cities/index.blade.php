@@ -29,7 +29,7 @@
             <td>{{ $cities->firstItem() + $key }}.</td>
             <td>{{ $city->name }}</td>
             <td>
-                {{ $city->deparment->name }}
+                {{ $city->department->name }}
             </td>
             <td>
                 <a href="{{ route('cities.edit', $city) }}">Edit</a>
