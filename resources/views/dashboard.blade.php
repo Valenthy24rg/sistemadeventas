@@ -5,7 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-light navbar-expand-lg mb-5"style="...">
+<nav class="navbar navbar-light navbar-expand-lg mb-5" style="...">
     <div class="container">
         <a class="navbar-brand mr-auto" href="#">ADSI - SENA</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collpase" data-bs-target="#navbarNav"
@@ -23,9 +23,35 @@
                         <a class="nav-link" href="{{ route('register-user') }}">Regístrate!</a>
                     </li>
                 @else
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('signout') }}">Salir</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('departments.index') }}">Department</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cities.index') }}">City</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('categories.index') }}">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('providers.index') }}">Provider</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('products.index') }}">Product</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('employees.index') }}">Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('clients.index') }}">Client</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('bills.index') }}">Bill</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('signout') }}">Salir</a>
+                    </li>
                 @endguest
             </ul>
         </div>

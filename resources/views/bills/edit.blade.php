@@ -1,10 +1,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <div style="margin-bottom: 1em;">
-    <a href="{{ route('bills.index') }}">Product List</a>
+    <a href="{{ route('bills.index') }}">Bill List</a>
 </div>
 
-<h1>Edit Product</h1>
+<h1>Edit Bill</h1>
 
 @if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>
@@ -13,13 +13,6 @@
 <form action="{{ route('bills.edit', $bill) }}" method="post">
     @csrf
     <div style="margin-bottom: 1em;">
-        <label for="total">Total</label>
-        <input type="text" name="total" id="total" placeholder="Enter total" value="{{ $bill->total }}">
-        @error('total')
-        <div style="color: red;">{{ $message }}</div>
-        @enderror
-    </div>
-    <div style="margin-bottom: 1em;">
         <label for="subtotal">Price</label>
         <input type="text" name="subtotal" id="subtotal" placeholder="Enter subtotal" value="{{ $bill->subtotal }}">
         @error('subtotal')
@@ -27,35 +20,42 @@
         @enderror
     </div>
     <div style="margin-bottom: 1em;">
-        <label for="employee_id">Employee</label>
-        <select name="employee_id" id="employee_id">
+        <label for="total">Total</label>
+        <input type="text" name="total" id="total" placeholder="Enter total" value="{{ $bill->total }}">
+        @error('total')
+        <div style="color: red;">{{ $message }}</div>
+        @enderror
+    </div>
+    <div style="margin-bottom: 1em;">
+        <label for="employees_id">Employee</label>
+        <select name="employees_id" id="employees_id">
             <option value="">Select</option>
             @foreach($employees as $employee)
                 <option
-                    @if($employee->id === (int)$product->employee_id)
+                    @if($employee->id === (int)$product->employees_id)
                         selected
                     @endif
                     value="{{ $employee->id }}">{{ $employee->nombre }}</option>
             @endforeach
         </select>
-        @error('employee_id')
+        @error('employees_id')
         <div style="color: red;">{{ $message }}</div>
         @enderror
     </div>
 
     <div style="margin-bottom: 1em;">
-        <label for="client_id">Client</label>
-        <select name="client_id" id="client_id">
+        <label for="clients_id">Client</label>
+        <select name="clients_id" id="clients_id">
             <option value="">Select</option>
             @foreach($clients as $client)
                 <option
-                    @if($client->id === (int)$bill->client_id)
+                    @if($client->id === (int)$bill->clients_id)
                         selected
                     @endif
                     value="{{ $client->id }}">{{ $client->nombre }}</option>
             @endforeach
         </select>
-        @error('client_id')
+        @error('clients_id')
         <div style="color: red;">{{ $message }}</div>
         @enderror
     </div>

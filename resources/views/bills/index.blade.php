@@ -1,5 +1,5 @@
 <div><a href="/">Home</a></div>
-<a href="{{ route('bills.create') }}">New Product</a>
+<a href="{{ route('bills.create') }}">New Bill</a>
 
 @if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>
@@ -10,8 +10,8 @@
     <tr>
         <td>N°</td>
         <td>Name</td>
-        <td>Total</td>
         <td>Subtotal</td>
+        <td>Total</td>
         <td>Employee</td>
         <td>Client</td>
         <td>Product</td>
@@ -22,8 +22,8 @@
     @forelse($bills as $key => $bill)
         <tr>
             <td>{{ $bills->firstItem() + $key }}.</td>
-            <td>{{ $bill->total }}</td>
             <td>{{ $bill->subtotal }}</td>
+            <td>{{ $bill->total }}</td>
             <td>
                 {{ $bill->employee->nombre }}
             </td>
@@ -33,7 +33,7 @@
             </td>
 
             <td>
-                {{ $bill->product->nombre }}
+                {{ $bill->product->name }}
             </td>
 
             <td>

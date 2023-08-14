@@ -32,18 +32,19 @@ class BillController extends Controller
         $data = $request->validate([
             'subtotal' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
             'total' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
-            'employees' => 'required|integer',
-            'clients' => 'required|integer',
-            'products' => 'required|integer',
+            'employees_id' => 'required|integer',
+            'clients_id' => 'required|integer',
+            'products_id' => 'required|integer',
         ]);
 
         Bill::create($data);
 
-        return back()->with('message', 'Product created successuflly');
+        return back()->with('message', 'Bill created successuflly');
     }
 
     public function edit(Bill $bill)
     {
+
         $employees = Employee::orderBy('nombre')->get();
         $clients = Client::orderBy('nombre')->get();
         $products = Product::orderBy('name')->get();
@@ -56,13 +57,20 @@ class BillController extends Controller
         $data = $request->validate([
             'subtotal' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
             'total' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
-            'employees' => 'required|integer',
-            'clients' => 'required|integer',
-            'products' => 'required|integer',
+            'employees_id' => 'required|integer',
+            'clients_id' => 'required|integer',
+            'products_id' => 'required|integer',
         ]);
 
         $bill->update($data);
 
         return back()->with('message', 'Product updated.');
+    }
+
+    public function destroy(Bill $bill)
+    {
+        $bill->delete();
+
+        return back()->with('message', 'Bill deleted.');
     }
 }

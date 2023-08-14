@@ -47,6 +47,47 @@
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
+                        @if (Route::has('departments.index'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('departments.index') }}">{{ __('Department') }}</a>
+                            </li>
+                        @endif
+                        @if (Route::has('cities.index'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('cities.index') }}">{{ __('City') }}</a>
+                            </li>
+                        @endif
+                        @if (Route::has('categories.index'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('categories.index') }}">{{ __('Category') }}</a>
+                            </li>
+                        @endif
+                        @if (Route::has('providers.index'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('providers.index') }}">{{ __('Provider') }}</a>
+                            </li>
+                        @endif
+                        @if (Route::has('products.index'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('products.index') }}">{{ __('Product') }}</a>
+                            </li>
+                        @endif
+                        @if (Route::has('employees.index'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('employees.index') }}">{{ __('Employee') }}</a>
+                            </li>
+                        @endif
+                        @if (Route::has('clients.index'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('clients.index') }}">{{ __('Client') }}</a>
+                            </li>
+                        @endif
+
+                        @if (Route::has('bills.index'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('bills.index') }}">{{ __('Bill') }}</a>
+                            </li>
+                        @endif
                         @if (Route::has('login'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}"> {{__('Login')}} </a>
