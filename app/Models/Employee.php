@@ -15,7 +15,7 @@ class Employee extends Model
         return $this->belongsTo(City::class);
     }
 
-    public function bill() {
+    public function bills() {
         return $this->belongsTo(Bill::class);
     }
 }

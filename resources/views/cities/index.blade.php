@@ -1,19 +1,17 @@
+@extends('app')
+@section('content')
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('cities.create') }}">New Ciudad</a></li>
-        </ul>
-    </div>
-</nav>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <div><a class="btn btn-success" href="/">Home</a></div>
+    <div><a class="btn btn-secondary" href="{{ route('cities.create') }}">New City</a></div>
 
 @if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>
 @endif
 
-<table class="table table-dark table-striped">
+<table class="table table-bordered table-hover">
     <thead>
     <tr>
         <td>N°</td>
@@ -31,12 +29,13 @@
             <td>
                 {{ $city->department->name }}
             </td>
-            <td>
-                <a href="{{ route('cities.edit', $city) }}">Edit</a>
+            <td>{{ $city->created_at->format('F d, y') }}</td>
 
+            <td>
+                <a class="btn btn-primary" href="{{ route('cities.edit', $city) }}"><i class="bi bi-pencil-square"></i></a>
                 <form action="{{ route('cities.delete', $city) }}" method="post">
                     @csrf
-                    <button type="submit">Delete</button>
+                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                 </form>
             </td>
         </tr>
@@ -49,4 +48,4 @@
 
 </table>
 
-
+@endsection

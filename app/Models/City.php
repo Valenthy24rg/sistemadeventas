@@ -15,11 +15,11 @@ class City extends Model
         return $this->belongsTo(Department::class);
     }
 
-    public function provider() {
+    public function providers() {
         return $this->belongsTo(Provider::class);
     }
 
-    public function employee() {
+    public function employees() {
         return $this->belongsTo(Employee::class);
     }
 }

@@ -16,6 +16,7 @@ class ClientController extends Controller
         ]);
     }
 
+
     public function create()
     {
         $cities = City::orderBy('name')->get();

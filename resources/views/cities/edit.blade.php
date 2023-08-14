@@ -1,5 +1,5 @@
 <div style="margin-bottom: 1em;">
-    <a href="{{ route('cities.index') }}">Ciudad List</a>
+    <a href="{{ route('cities.index') }}">City List</a>
 </div>
 
 <h1>Edit Ciudad</h1>
@@ -12,7 +12,7 @@
     @csrf
     <div style="margin-bottom: 1em;">
         <label for="name">Nombre</label>
-        <input type="text" name="name" id="name" placeholder="Enter Ciudad" value="{{ $ciudad->name }}">
+        <input type="text" name="name" id="name" placeholder="Enter Ciudad" value="{{ $city->name }}">
         @error('name')
         <div style="color: red;">{{ $message }}</div>
         @enderror
@@ -23,7 +23,7 @@
             <option value="">Select</option>
             @foreach($departments as $department)
                 <option
-                    @if($department->id === (int)$city->$department_id)
+                    @if($department->id === (int)$city->department_id)
                         selected
                     @endif
                     value="{{ $department->id }}">{{ $department->name }}</option>

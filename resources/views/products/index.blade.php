@@ -1,11 +1,16 @@
-<div><a href="/">Home</a></div>
-<a href="{{ route('products.create') }}">New Product</a>
+@extends('app')
+@section('content')
+
+
+<div><a class="btn btn-success" href="/">Home</a></div>
+<a class="btn btn-secondary" href="{{ route('products.create') }}">New Product</a>
+<div></div>
 
 @if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>
 @endif
 
-<table cellpadding="10" cellspacing="1" border="1">
+<table class="table table-bordered table-hover" cellpadding="10" cellspacing="1" border="1">
     <thead>
     <tr>
         <td>N°</td>
@@ -25,11 +30,11 @@
                 {{ $product->category->name }}
             </td>
             <td>
-                <a href="{{ route('products.edit', $product) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('products.edit', $product) }}"><i class="bi bi-pencil-square"></i></a>
 
                 <form action="{{ route('products.delete', $product) }}" method="post">
                     @csrf
-                    <button type="submit">Delete</button>
+                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                 </form>
             </td>
         </tr>
@@ -40,3 +45,4 @@
     @endforelse
     </tbody>
 </table>
+@endsection

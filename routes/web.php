@@ -65,7 +65,7 @@ Route::get('/client', [ClientController::class, 'index'])->name('clients.index')
 Route::get('/client/create', [ClientController::class, 'create'])->name('clients.create');
 Route::post('/client/create', [ClientController::class, 'store'])->name('clients.create');
 Route::get('/client/edit/{client}', [ClientController::class, 'edit'])->name('clients.edit');
-Route::post('/client/edit/{client}', [ClientController::class, 'update'])->name('cities.edit');
+Route::post('/client/edit/{client}', [ClientController::class, 'update'])->name('clients.edit');
 Route::post('/client/delete/{client}', [ClientController::class, 'destroy'])->name('clients.delete');
 
 // Rutas para el CRUD de proveedores
