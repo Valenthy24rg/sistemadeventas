@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
 
-<<<<<<< HEAD
+
     <div><a class="btn btn-success" href="/">Home</a></div>
     <a class="btn btn-secondary" href="{{ route('bills.create') }}">New Bill</a>
 
@@ -46,7 +46,7 @@
         @endforelse
         </tbody>
     </table>
-=======
+
 
 <div><a class="btn btn-success" href="/">Home</a></div>
 <a class="btn btn-secondary" href="{{ route('bills.create') }}">New Bill</a>
@@ -105,5 +105,4 @@
     @endforelse
     </tbody>
 </table>
->>>>>>> 86a93f9801fdf2e79146bb33a169b2503a59bbc2
 @endsection
