@@ -1,11 +1,13 @@
-<div><a href="/">Home</a></div>
-<a href="{{ route('bills.create') }}">New Bill</a>
+@extends('app')
+@section('content')
 
-@if(session('message'))
-    <div style="color: green;">{{ session('message') }}</div>
-@endif
 
-<table cellpadding="10" cellspacing="1" border="1">
+<div><a class="btn btn-success" href="/">Home</a></div>
+<a class="btn btn-secondary" href="{{ route('bills.create') }}">New Bill</a>
+
+
+
+<table class="table table-bordered table-hover" cellpadding="10" cellspacing="1" border="1">
     <thead>
     <tr>
         <td>N°</td>
@@ -36,12 +38,17 @@
                 {{ $bill->product->name }}
             </td>
 
+            <td>{{ $city->created_at->format('F d, y') }}</td>
+
             <td>
-                <a href="{{ route('bills.edit', $bill) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('bills.edit', $bill) }}"><i class="bi bi-pencil-square"></i></a>
 
                 <form action="{{ route('bills.delete', $bill) }}" method="post">
                     @csrf
-                    <button type="submit">Delete</button>
+                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                    @if(session('message'))
+                        <div style="color: green;">{{ session('message') }}</div>
+                    @endif
                 </form>
             </td>
         </tr>
@@ -52,3 +59,4 @@
     @endforelse
     </tbody>
 </table>
+@endsection
