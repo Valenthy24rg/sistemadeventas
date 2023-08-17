@@ -9,13 +9,13 @@ class Employee extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'apellido', 'direccion', 'telefono', 'city_id'];
+    protected $fillable = ['name', 'apellido', 'direccion', 'telefono', 'city_id'];
 
     public function city() {
         return $this->belongsTo(City::class);
     }
 
     public function bills() {
-        return $this->belongsTo(Bill::class);
+        return $this->hasMany(Bill::class);
     }
 }

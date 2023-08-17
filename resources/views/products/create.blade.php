@@ -1,6 +1,5 @@
 @extends('app')
 @section('content')
-
 <div style="margin-bottom: 1em;">
     <a class="btn btn-secondary" href="{{ route('products.index') }}">Product List</a>
 </div>
@@ -49,10 +48,9 @@
                                 @enderror
                             </div>
                             <div class="d-grid mx-auto">
-                                <button type="submit"  class="btn btn-dark btn-block">Submit</button>
+                                <button type="submit" class="btn btn-dark btn-block">Submit</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>

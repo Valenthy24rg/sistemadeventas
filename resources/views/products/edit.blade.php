@@ -1,7 +1,6 @@
 @extends('app')
 @section('content')
-
-<div style="margin-bottom: 1em;">
+<div class="btn btn-secondary" style="margin-bottom: 1em;">
     <a href="{{ route('products.index') }}">Products List</a>
 </div>
 

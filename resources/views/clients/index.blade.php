@@ -20,7 +20,6 @@
             <td>Dirección</td>
             <td>Ciudad</td>
             <td>Producto(s)</td>
-            <td>Timestamp</td>
             <td>Action</td>
         </tr>
         </thead>
@@ -34,6 +33,7 @@
                 <td>{{ $client->direccion }}</td>
                 <td>{{ $client->city->name }}</td>
                 <td>{{ $client->products->name }}</td>
+
 
                 <td>
                     <a class="btn btn-primary" href="{{ route('clients.edit', $client) }}"><i class="bi bi-pencil-square"></i></a>

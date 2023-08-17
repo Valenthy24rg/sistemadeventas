@@ -2,7 +2,7 @@
 @section('content')
 
     <div style="margin-bottom: 1em;">
-        <a href="{{ route('employees.index') }}">Empleados List</a>
+        <a class="btn btn-secondary" href="{{ route('employees.index') }}">Empleados List</a>
     </div>
 
     <h1>Edit Empleados</h1>
@@ -14,9 +14,9 @@
     <form action="{{ route('employees.create') }}" method="post">
         @csrf
         <div style="margin-bottom: 1em;">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Enter Empleados" value="{{ old('nombre') }}">
-            @error('nombre')
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter Empleados" value="{{ old('name') }}">
+            @error('name')
             <div style="color: red;">{{ $message }}</div>
             @enderror
         </div>

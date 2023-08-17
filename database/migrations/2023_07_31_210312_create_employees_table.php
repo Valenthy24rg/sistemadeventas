@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 50);
-            $table->string('apellido', 50);
-            $table->string('direccion', 100);
-            $table->string('telefono', 10);
-
+            $table->string('name');
+            $table->string('apellido');
+            $table->string('direccion');
+            $table->string('telefono');
             $table->foreignId('city_id')->constrained()->onDelete('cascade');
 
 

@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-    <div style="margin-bottom: 1em;">
+    <div class="btn btn-secondary" style="margin-bottom: 1em;">
         <a href="{{ route('employees.index') }}">Empleados List</a>
     </div>
 
@@ -13,9 +13,9 @@
     <form action="{{ route('employees.edit', $employee) }}" method="post">
         @csrf
         <div style="margin-bottom: 1em;">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Enter Empleados" value="{{ $employee->nombre }}">
-            @error('nombre')
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" placeholder="Enter Empleados" value="{{ $employee->nombre }}">
+            @error('name')
             <div style="color: red;">{{ $message }}</div>
             @enderror
         </div>

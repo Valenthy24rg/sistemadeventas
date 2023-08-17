@@ -4,7 +4,7 @@
 
 <div><a class="btn btn-success" href="/">Home</a></div>
 <a class="btn btn-secondary" href="{{ route('products.create') }}">New Product</a>
-<div></div>
+
 
 @if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>

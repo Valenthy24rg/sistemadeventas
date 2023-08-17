@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bill;
-use App\Models\Client;
 use App\Models\Employee;
+use App\Models\Client;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use function Sodium\compare;
 
 class BillController extends Controller
 {
@@ -20,7 +19,7 @@ class BillController extends Controller
 
     public function create()
     {
-        $employees = Employee::orderBy('nombre')->get();
+        $employees = Employee::orderBy('name')->get();
         $clients = Client::orderBy('nombre')->get();
         $products = Product::orderBy('name')->get();
 
@@ -39,13 +38,13 @@ class BillController extends Controller
 
         Bill::create($data);
 
-        return back()->with('message', 'Bill created successuflly');
+        return back()->with('message', 'Bill created successfully');
     }
 
     public function edit(Bill $bill)
     {
 
-        $employees = Employee::orderBy('nombre')->get();
+        $employees = Employee::orderBy('name')->get();
         $clients = Client::orderBy('nombre')->get();
         $products = Product::orderBy('name')->get();
 
@@ -64,7 +63,7 @@ class BillController extends Controller
 
         $bill->update($data);
 
-        return back()->with('message', 'Product updated.');
+        return back()->with('message', 'Bill updated.');
     }
 
     public function destroy(Bill $bill)
