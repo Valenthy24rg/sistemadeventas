@@ -19,7 +19,7 @@
                             @csrf
                             <div style="margin-bottom: 1em;">
                                 <label for="name">Name</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Category" value="{{ old('name') }}">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Product" value="{{ old('name') }}">
                                 @error('name')
                                 <div style="color: red;">{{ $message }}</div>
                                 @enderror

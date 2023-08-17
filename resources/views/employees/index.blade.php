@@ -1,14 +1,14 @@
 @extends('app')
 @section('content')
 
-    <div><a href="/">Home</a></div>
-    <div><a href="{{ route('employees.create') }}">New Empleado</a></div>
+    <div><a class="btn btn-success" href="/">Home</a></div>
+    <div><a class="btn btn-secondary" href="{{ route('employees.create') }}">New Empleado</a></div>
 
     @if(session('message'))
         <div style="color: green;">{{ session('message') }}</div>
     @endif
 
-    <table cellpadding="10" cellspacing="1" border="1">
+    <table class="table table-bordered table-hover" cellpadding="10" cellspacing="1" border="1">
         <thead>
         <tr>
             <td>N°</td>
@@ -30,6 +30,12 @@
                 <td>{{ $employee->telefono }}</td>
                 <td>{{ $employee->city->name }}</td>
                 <td>
+<<<<<<< HEAD
+=======
+                    {{ $employee->city->name }}
+                </td>
+                <td>
+>>>>>>> 86a93f9801fdf2e79146bb33a169b2503a59bbc2
                     <a class="btn btn-primary" href="{{ route('employees.edit', $employee) }}"><i class="bi bi-pencil-square"></i></a>
 
                     <form action="{{ route('employees.delete', $employee) }}" method="post">
