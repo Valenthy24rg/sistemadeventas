@@ -9,16 +9,6 @@
         <div style="color: green;">{{ session('message') }}</div>
     @endif
 
-<<<<<<< HEAD
-    <form action="{{ route('employees.edit', $employee) }}" method="post">
-        @csrf
-        <div style="margin-bottom: 1em;">
-            <label for="name">Nombre</label>
-            <input type="text" name="name" id="name" placeholder="Enter Empleados" value="{{ $employee->nombre }}">
-            @error('name')
-            <div style="color: red;">{{ $message }}</div>
-            @enderror
-=======
     <main class="login-form">
         <div class="container">
             <div class="row justify-content-center">
@@ -29,8 +19,8 @@
                              <form action="{{ route('employees.edit', $employee) }}" method="post">
                                  @csrf
                                  <div style="margin-bottom: 1em;">
-                                     <label for="nombre">Nombre</label>
-                                     <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Enter Empleados" value="{{ $employee->nombre }}">
+                                     <label for="name">Nombre</label>
+                                     <input type="text" name="name" id="name" class="form-control" placeholder="Enter Empleados" value="{{ $employee->name }}">
                                      @error('nombre')
                                      <div style="color: red;">{{ $message }}</div>
                                      @enderror
@@ -83,7 +73,6 @@
                      </div>
                  </div>
             </div>
->>>>>>> 86a93f9801fdf2e79146bb33a169b2503a59bbc2
         </div>
     </main>
 @endsection

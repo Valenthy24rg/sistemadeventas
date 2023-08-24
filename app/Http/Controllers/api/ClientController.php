@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
-use http\Env\Response;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -38,7 +37,7 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(string $id)
     {
         $client = Client::findOrFail($id);
         return response()->json($client);
@@ -47,13 +46,17 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
         $client = Client::findOrFail($id);
 
         $request->validate([
-            'name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'nombre' => 'required|max:255',
+            'cedula' => 'required|max:255',
+            'telefono' => 'required|max:255',
+            'direccion' => 'required|max:255',
+            'city_id' => 'required|integer',
+            'products_id' => 'required|integer'
         ]);
         $client->update($request->all());
 
@@ -63,7 +66,7 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
         $client = Client::findOrFail($id);
         $client->delete();

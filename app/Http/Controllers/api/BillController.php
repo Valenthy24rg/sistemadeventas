@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bill;
-use http\Env\Response;
 use Illuminate\Http\Request;
 
 class BillController extends Controller
@@ -38,7 +37,7 @@ class BillController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(string $id)
     {
         $bill = Bill::findOrFail($id);
         return response()->json($bill);
@@ -47,13 +46,16 @@ class BillController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
         $bill = Bill::findOrFail($id);
 
         $request->validate([
-            'name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'subtotal' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
+            'total' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
+            'employee_id' => 'required|integer',
+            'clients_id' => 'required|integer',
+            'products_id' => 'required|integer'
         ]);
         $bill->update($request->all());
 
@@ -63,7 +65,7 @@ class BillController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
         $bill = Bill::findOrFail($id);
         $bill->delete();

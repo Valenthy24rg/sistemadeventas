@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Provider;
-use http\Env\Response;
 use Illuminate\Http\Request;
 
 class ProviderController extends Controller
@@ -38,7 +37,7 @@ class ProviderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(string $id)
     {
         $provider = Provider::findOrFail($id);
         return response()->json($provider);
@@ -47,13 +46,13 @@ class ProviderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
         $provider = Provider::findOrFail($id);
 
         $request->validate([
             'name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'city_id' => 'required|integer'
         ]);
         $provider->update($request->all());
 
@@ -63,7 +62,7 @@ class ProviderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
         $provider = Provider::findOrFail($id);
         $provider->delete();

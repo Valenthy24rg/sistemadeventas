@@ -4,9 +4,7 @@
     <a class="btn btn-secondary" href="{{ route('products.index') }}">Product List</a>
 </div>
 
-@if(session('message'))
-    <div style="color: green;">{{ session('message') }}</div>
-@endif
+
 
 <main class="login-form">
     <div class="container">
@@ -50,6 +48,9 @@
                             <div class="d-grid mx-auto">
                                 <button type="submit" class="btn btn-dark btn-block">Submit</button>
                             </div>
+                            @if(session('message'))
+                                <div style="color: green;">{{ session('message') }}</div>
+                            @endif
                         </form>
                     </div>
                 </div>

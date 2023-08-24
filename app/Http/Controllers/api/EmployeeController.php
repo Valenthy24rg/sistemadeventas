@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
-use http\Env\Response;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -38,7 +37,7 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(string $id)
     {
         $employee = Employee::findOrFail($id);
         return response()->json($employee);
@@ -47,13 +46,16 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
         $employee = Employee::findOrFail($id);
 
         $request->validate([
             'name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'apellido' => 'required|max:255',
+            'direccion' => 'required|max:255',
+            'telefono' => 'required|max:255',
+            'city_id' => 'required|integer'
         ]);
         $employee->update($request->all());
 
@@ -63,7 +65,7 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
         $employee = Employee::findOrFail($id);
         $employee->delete();

@@ -15,7 +15,7 @@ class Employee extends Model
         return $this->belongsTo(City::class);
     }
 
-    public function bills() {
+    public function bill() {
         return $this->hasMany(Bill::class);
     }
 }

@@ -31,7 +31,7 @@ class BillController extends Controller
         $data = $request->validate([
             'subtotal' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
             'total' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
-            'employees_id' => 'required|integer',
+            'employee_id' => 'required|integer',
             'clients_id' => 'required|integer',
             'products_id' => 'required|integer',
         ]);
@@ -56,7 +56,7 @@ class BillController extends Controller
         $data = $request->validate([
             'subtotal' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
             'total' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
-            'employees_id' => 'required|integer',
+            'employee_id' => 'required|integer',
             'clients_id' => 'required|integer',
             'products_id' => 'required|integer',
         ]);

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
-use http\Env\Response;
 use Illuminate\Http\Request;
 
 class CityController extends Controller
@@ -38,7 +37,7 @@ class CityController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(string $id)
     {
         $city = City::findOrFail($id);
         return response()->json($city);
@@ -47,13 +46,13 @@ class CityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
         $city = City::findOrFail($id);
 
         $request->validate([
             'name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'department_id' => 'required|integer'
         ]);
         $city->update($request->all());
 
@@ -63,9 +62,9 @@ class CityController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
-        $city = City::findOrFail($id);
+         $city = City::findOrFail($id);
         $city->delete();
 
         return response()->json(null);

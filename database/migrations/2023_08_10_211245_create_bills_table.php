@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->decimal('subtotal', 10, 2);
             $table->decimal('total', 10, 2);
-            $table->foreignId('employees_id')->constrained()->onDelete('cascade');
+            $table->foreignId('employee_id')->constrained()->onDelete('cascade');
             $table->foreignId('clients_id')->constrained()->onDelete('cascade');
             $table->foreignId('products_id')->constrained()->onDelete('cascade');
-
             $table->timestamps();
         });
     }

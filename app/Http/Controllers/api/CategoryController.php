@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use http\Env\Response;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -38,7 +37,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(string $id)
     {
         $category = Category::findOrFail($id);
         return response()->json($category);
@@ -47,7 +46,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
         $category = Category::findOrFail($id);
 
@@ -63,7 +62,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
         $category = Category::findOrFail($id);
         $category->delete();
