@@ -27,7 +27,7 @@
         @forelse($clients as $key => $client)
             <tr>
                 <td>{{ $clients->firstItem() + $key }}.</td>
-                <td>{{ $client->nombre }}</td>
+                <td>{{ $client->name }}</td>
                 <td>{{ $client->cedula }}</td>
                 <td>{{ $client->telefono }}</td>
                 <td>{{ $client->direccion }}</td>

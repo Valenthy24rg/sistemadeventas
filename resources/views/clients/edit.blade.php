@@ -19,9 +19,9 @@
                              <form action="{{ route('clients.create', $client) }}" method="post">
                                  @csrf
                                  <div style="margin-bottom: 1em;">
-                                     <label for="nombre">Nombre</label>
-                                     <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Enter Customer">
-                                     @error('nombre')
+                                     <label for="name">NameGIT </label>
+                                     <input type="text" name="name" id="name" class="form-control" placeholder="Enter Customer">
+                                     @error('name')
                                      <div style="color: red;">{{ $message }}</div>
                                      @enderror
                                  </div>
