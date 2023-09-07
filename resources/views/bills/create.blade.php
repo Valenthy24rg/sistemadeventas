@@ -3,7 +3,6 @@
     <div style="margin-bottom: 1em;">
         <a class="btn btn-secondary" href="{{ route('bills.index') }}">Bill List</a>
     </div>
-
     <main class="login-form">
         <div class="container">
             <div class="row justify-content-center">
