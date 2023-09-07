@@ -30,8 +30,8 @@
                                     @enderror
                                 </div>
                                 <div class="form-group mb-3" style="margin-bottom: 1em;">
-                                    <label for="employees_id">Employee</label>
-                                    <select class="form-control" name="employees_id" id="employees_id">
+                                    <label for="employee_id">Employee</label>
+                                    <select class="form-control" name="employee_id" id="employee_id">
                                         <option value="">Select</option>
                                         @foreach($employees as $employee)
                                             <option
@@ -41,24 +41,24 @@
                                                 value="{{ $employee->id }}">{{ $employee->name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('employees_id')
+                                    @error('employee_id')
                                     <div style="color: red;">{{ $message }}</div>
                                     @enderror
                                 </div>
 
                                 <div class="form-group mb-3" style="margin-bottom: 1em;">
-                                    <label for="clients_id">Client</label>
-                                    <select class="form-control" name="clients_id" id="clients_id">
+                                    <label for="client_id">Client</label>
+                                    <select class="form-control" name="client_id" id="client_id">
                                         <option value="">Select</option>
                                         @foreach($clients as $client)
                                             <option
-                                                @if($client->id === (int)old('clients_id'))
+                                                @if($client->id === (int)old('client_id'))
                                                     selected
                                                 @endif
-                                                value="{{ $client->id }}">{{ $client->nombre }}</option>
+                                                value="{{ $client->id }}">{{ $client->name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('clients_id')
+                                    @error('client_id')
                                     <div style="color: red;">{{ $message }}</div>
                                     @enderror
                                 </div>

@@ -20,7 +20,7 @@ class BillController extends Controller
     public function create()
     {
         $employees = Employee::orderBy('name')->get();
-        $clients = Client::orderBy('nombre')->get();
+        $clients = Client::orderBy('name')->get();
         $products = Product::orderBy('name')->get();
 
         return view('bills.create', compact('employees', 'clients', 'products'));
@@ -31,8 +31,8 @@ class BillController extends Controller
         $data = $request->validate([
             'subtotal' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
             'total' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
-            'employees_id' => 'required|integer',
-            'clients_id' => 'required|integer',
+            'employee_id' => 'required|integer',
+            'client_id' => 'required|integer',
             'products_id' => 'required|integer',
         ]);
 
@@ -45,7 +45,7 @@ class BillController extends Controller
     {
 
         $employees = Employee::orderBy('name')->get();
-        $clients = Client::orderBy('nombre')->get();
+        $clients = Client::orderBy('name')->get();
         $products = Product::orderBy('name')->get();
 
         return view('bills.edit', compact('bill','employees', 'clients', 'products'));
@@ -56,8 +56,8 @@ class BillController extends Controller
         $data = $request->validate([
             'subtotal' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
             'total' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
-            'employees_id' => 'required|integer',
-            'clients_id' => 'required|integer',
+            'employee_id' => 'required|integer',
+            'client_id' => 'required|integer',
             'products_id' => 'required|integer',
         ]);
 
